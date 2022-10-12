@@ -4,7 +4,7 @@ package com.assignmentDay14;
 
 public class LinkedListAssignment <T>{
     static Node head;
-    Node tail;
+    static Node tail;
     static class Node<T>{
         T data;
         Node next;
@@ -71,6 +71,21 @@ public class LinkedListAssignment <T>{
         }
     }
 
+    public T popLast() {
+        if (head == null) {
+            return null;
+        } else {
+            Node<T> temp = head;
+            while (temp.next != tail) {
+                tail = temp.next;
+            }
+            T data = (T) tail.data;
+            temp.next = null;
+            tail = temp;
+            return data;
+        }
+    }
+
     public static void main(String[] args){
         System.out.println("Welcome to Linked List Assignment");
         LinkedListAssignment list = new LinkedListAssignment();// UC2
@@ -81,7 +96,9 @@ public class LinkedListAssignment <T>{
         list.insert(30);//UC4
 
         printList(list);
-        list.pop();
+        list.pop();//UC5
+        printList(list);
+        list.popLast();//UC6
         printList(list);
     }
 }
