@@ -61,16 +61,27 @@ public class LinkedListAssignment <T>{
             newNode.next = temp;
         }
     }
+    public T pop() {
+        if (head == null) {
+            return null;
+        } else {
+            T data = (T) head.data;
+            head = head.next;
+            return data;
+        }
+    }
 
     public static void main(String[] args){
         System.out.println("Welcome to Linked List Assignment");
         LinkedListAssignment list = new LinkedListAssignment();// UC2
 
 
-        list.append( 70);//UC3
-        list.append(56);
+        list.append( 56);//UC3
+        list.append(70);
         list.insert(30);//UC4
 
+        printList(list);
+        list.pop();
         printList(list);
     }
 }
