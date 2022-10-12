@@ -1,14 +1,62 @@
 package com.assignmentDay14;
 
-import java.util.LinkedList;
+
 
 public class LinkedListAssignment {
-    public static void main(String[] args) {
+   static Node head;
+    static Node tail;
+    static class Node{
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static LinkedListAssignment add(LinkedListAssignment list, int data){
+
+        Node new_node = new Node(data);
+
+
+        if (list.head == null) {
+            list.head = new_node;
+        }
+        else {
+
+            new_node.next = head;
+            head = new_node;
+        }
+
+        return list;
+    }
+
+
+    public static void printList(LinkedListAssignment list) {
+        Node currNode = list.head;
+
+        System.out.print("LinkedList: ");
+
+        while (currNode != null) {
+
+            System.out.print(currNode.data + " -> ");
+
+            currNode = currNode.next;
+        }
+        System.out.println("NULL");
+    }
+
+
+    public static void main(String[] args){
         System.out.println("Welcome to Linked List Assignment");
-        LinkedList<Integer> list = new LinkedList<>();
-        list.add(56);
-        list.add(30);
-        list.add(70);
-        System.out.println(list);//uc1
+        LinkedListAssignment list = new LinkedListAssignment();// UC2
+
+
+        list = add(list, 70);//UC2
+        list = add(list, 30);
+        list = add(list, 56);
+
+        printList(list);
     }
 }
