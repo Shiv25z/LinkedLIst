@@ -15,7 +15,7 @@ public class LinkedListAssignment {
         }
     }
 
-    public static LinkedListAssignment add(LinkedListAssignment list, int data){
+    public static LinkedListAssignment append(LinkedListAssignment list, int data){
 
         Node new_node = new Node(data);
 
@@ -53,9 +53,9 @@ public class LinkedListAssignment {
         LinkedListAssignment list = new LinkedListAssignment();// UC2
 
 
-        list = add(list, 70);//UC2
-        list = add(list, 30);
-        list = add(list, 56);
+        list = append(list, 70);//UC3
+        list = append(list, 30);
+        list = append(list, 56);
 
         printList(list);
     }
